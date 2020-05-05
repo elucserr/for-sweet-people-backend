@@ -10,60 +10,84 @@ start with `npm run start-dev`
 
 ## Description
 
-Describe your project in one/two lines.
+API destined for diabetic people with the intention of creating a daily record of glucose levels, administration of medications, daily activity and monitoring of diet.
 
 ## Motivation
 
-Just a litle API for educational purposes.
+Personal motivation, since I have diabetes and I know how difficult it is to keep good track of the different data. I would be very excited to use my own application.
 
 ## User Stories
 
-**404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
+**404** - As a user I want to see a 404 page when I access to a page that does not exist
 
-**500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
+**Homepage** - As a user I want to be able to access to a homepage where appears an introduction of the App 
 
-**Homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
+**Sign up** - As a user I want to sign up on the App so that I can access to all the functionalities
 
-**Sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
+**Login** - As a user I want to be able to log in on the App so that I can access to my account
 
-**Login** - As a user I want to be able to log in on the webpage so that I can get back to my account
+**Logout** - As a user I want to be able to log out from the App
 
-**Logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
+**Options list** - As a user I want to see a page with the 4 options this App allows me to do
 
-**Events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
+**Record Creation** - As a user I want to create records of glucose levels, administration of medications, daily activity and monitoring of diet
 
-**Events create** - As a user I want to create an event so that I can invite others to attend
+**Record Edition** - As a user I want to edit my records of glucose levels, administration of medications, daily activity and monitoring of diet
 
-**Events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend
+**Record Deletion** - As a user I want to delete my records of glucose levels, administration of medications, daily activity and monitoring of diet
 
-**Attend event** - As a user I want to be able to attend to event so that the organizers can count me in
 
 ## Backlog
 
 List of other features outside of the MVPs scope
 
-User profile: - see my profile - upload my profile picture - see other users profile - list of events created by the user - list events the user is attending
+My profile: Option to see my own profile, also to edit my own profile
 
-Geo Location: - add geolocation to events when creating - show event in a map in event detail page - show all events in a map in the event list page
+Diet record: Able to show food records with images
 
-Homepage: - …
+Medication record: Able to show medication records with images
+
+Friends: Have a list of friends with their profiles
 
 ## ROUTES:
 
 ### Endpoints
 
-| Method | Path         | description     | Body |
-| :----: | ------------ | --------------- | ---- |
-|  GET   | `/protected` | protected route |      |
+| Method | Path            | description      | Body                                                                         |
+| :----: | --------------- | ---------------- | ---------------------------------------------------------------------------- |
+|  GET   | `/protected`    | protected route  |                                                                              |
+|  GET   | `/users/:id`    | get my profile   |                                                                              |
+|  PUT   | `/users/:id`    | edit profile     | `{ username, password, email, dateofBirth, typeOfDiabetes, weight, height }` |
+| DELETE | `/users/:id`    | delete a record  |                                                                              |
+|  GET   | `/blood`        | list all records |                                                                              |
+|  POST  | `/blood`        | create a record  | `{ date, time, level }`                                                      |
+|  GET   | `/blood/:id`    | get a record     |                                                                              |
+|  PUT   | `/blood/:id`    | update a record  | `{ date, time, level }`                                                      |
+| DELETE | `/blood/:id`    | delete a record  |                                                                              |
+|  GET   | `/activity`     | list all records |                                                                              |
+|  POST  | `/activity`     | create a record  | `{ type, km, type }`                                                         |
+|  GET   | `/activity/:id` | get a record     |                                                                              |
+|  PUT   | `/activity/:id` | update a record  | `{ type, km, type }`                                                         |
+| DELETE | `/activity/:id` | delete a record  |                                                                              |
+|  GET   | `/medicine`     | list all records |                                                                              |
+|  POST  | `/medicine`     | create a record  | `{ date, time, medicine }`                                                   |
+|  GET   | `/medicine/:id` | get a record     |                                                                              |
+|  PUT   | `/medicine/:id` | update a record  | `{ date, time, medicine }`                                                   |
+| DELETE | `/medicine/:id` | delete a record  |                                                                              |
+|  GET   | `/diet`         | list all records |                                                                              |
+|  POST  | `/diet`         | create a record  | `{ date, timeOfDay, aliment }`                                               |
+|  GET   | `/diet/:id`     | get a record     |                                                                              |
+|  PUT   | `/diet/:id`     | update a record  | `{ date, timeOfDay, aliment }`                                               |
+| DELETE | `/diet/:id`     | delete a record  |                                                                              |
 
 ### Auth
 
-| Method | Path      | description    | Body                     |
-| :----: | --------- | -------------- | ------------------------ |
-|  GET   | `/whoami` | who am i       |                          |
-|  POST  | `/signup` | signup a user  | `{ username, password }` |
-|  POST  | `/login`  | login a user   | `{ username, password }` |
-|  GET   | `/logout` | logout session |                          |
+| Method | Path      | description    | Body                            |
+| :----: | --------- | -------------- | ------------------------------- |
+|  GET   | `/whoami` | who am i       |                                 |
+|  POST  | `/signup` | signup a user  | `{ username, password, email }` |
+|  POST  | `/login`  | login a user   | `{ username, password }`        |
+|  GET   | `/logout` | logout session |                                 |
 
 ## Models
 
@@ -71,20 +95,62 @@ User model
 
 ```javascript
 {
-	username: String;
-	password: String;
+	username: String
+	password: String
+	email: String
+	dateOfBirth: Date
+	typeOfDiabetes: enum [one, two, lada]
+	weight: Number
+	height: Number
 }
 ```
 
-Event model
+Blood model
 
 ```javascript
 {
 	owner: ObjectId<User>
-	name: String
-	description: String
 	date: Date
-	location: String
+	time: String
+	level: Number
+
+}
+```
+
+Aliment model
+
+```javascript
+{
+	owner: ObjectId<User>
+	date: Date
+	timeOfDay: enum [breakfast, brunch, lunch, snack, dinner]
+	aliment: String
+
+
+}
+```
+
+Activity model
+
+```javascript
+{
+	owner: ObjectId<User>
+	type: String
+	km: Number
+	time: String
+
+}
+```
+
+Medicine model
+
+```javascript
+{
+	owner: ObjectId<User>
+	date: Date
+	time: String
+	medicine: String
+
 }
 ```
 
@@ -98,10 +164,10 @@ Link to Trello
 
 The url to your repository and to your deployed project
 
-[Repository Link](http://github.com/)
+[Repository Link](https://github.com/elucserr/for-sweet-people-backend)
 
 [Deploy Link](http://heroku.com/)
 
 ### Slides
 
-[Slides Link](http://slides.com/)
+[Slides Link](https://slides.com/elenalucas/deck/fullscreen)
