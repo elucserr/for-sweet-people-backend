@@ -8,6 +8,6 @@ const bloodSchema = new Schema({
 	level: Number,
 });
 
-const Blood = mongoose.model('Resort', bloodSchema);
+const Blood = mongoose.model('Blood', bloodSchema);
 
 module.exports = Blood;
