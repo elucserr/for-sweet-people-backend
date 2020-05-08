@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const activitySchema = new Schema({
-	date: Date,
+	type: String,
+	km: Number,
 	time: String,
-	level: Number,
 });
 
-const Activity = mongoose.model('Resort', activitySchema);
+const Activity = mongoose.model('Activity', activitySchema);
 
 module.exports = Activity;
