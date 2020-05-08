@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
 		.catch(next);
 });
 
-// POST /activity/:id delete a record
+// DELETE /activity/:id delete a record
 router.delete('/:id', (req, res, next) => {
 	const { id } = req.params;
 	Activity.findByIdAndDelete(id)
@@ -35,7 +35,7 @@ router.delete('/:id', (req, res, next) => {
 		.catch(next);
 });
 
-// POST /activity/:id update a record
+// PUT /activity/:id update a record
 router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const { type, km, time } = req.body;

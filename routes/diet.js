@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
 		.catch(next);
 });
 
-// POST /diet/:id delete a record
+// DELETE /diet/:id delete a record
 router.delete('/:id', (req, res, next) => {
 	const { id } = req.params;
 	Diet.findByIdAndDelete(id)
@@ -35,7 +35,7 @@ router.delete('/:id', (req, res, next) => {
 		.catch(next);
 });
 
-// POST /diet/:id update a record
+// PUT /diet/:id update a record
 router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const { date, time, aliment } = req.body;

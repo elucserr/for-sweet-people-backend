@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
 		.catch(next);
 });
 
-// POST /blood/:id delete a record
+// DELETE /blood/:id delete a record
 router.delete('/:id', (req, res, next) => {
 	const { id } = req.params;
 	Blood.findByIdAndDelete(id)
@@ -35,7 +35,7 @@ router.delete('/:id', (req, res, next) => {
 		.catch(next);
 });
 
-// POST /blood/:id update a record
+// PUT /blood/:id update a record
 router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const { date, time, level } = req.body;

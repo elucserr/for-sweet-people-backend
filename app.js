@@ -26,6 +26,7 @@ mongoose
 
 const authRouter = require('./routes/auth');
 const demoRouter = require('./routes/demo');
+const userRouter = require('./routes/user');
 const bloodRouter = require('./routes/blood');
 const dietRouter = require('./routes/diet');
 const medicineRouter = require('./routes/medicine');
@@ -62,6 +63,7 @@ app.use(
 
 app.use('/', authRouter);
 app.use('/protected', demoRouter);
+app.use('/user', userRouter);
 app.use('/blood', bloodRouter);
 app.use('/diet', dietRouter);
 app.use('/medicine', medicineRouter);
