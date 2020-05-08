@@ -26,6 +26,10 @@ mongoose
 
 const authRouter = require('./routes/auth');
 const demoRouter = require('./routes/demo');
+const bloodRouter = require('./routes/blood');
+const dietRouter = require('./routes/diet');
+const medicineRouter = require('./routes/medicine');
+const activityRouter = require('./routes/activity');
 
 const app = express();
 
@@ -58,6 +62,10 @@ app.use(
 
 app.use('/', authRouter);
 app.use('/protected', demoRouter);
+app.use('/blood', bloodRouter);
+app.use('/diet', dietRouter);
+app.use('/medicine', medicineRouter);
+app.use('/activity', activityRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
