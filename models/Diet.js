@@ -12,6 +12,6 @@ const dietSchema = new Schema({
 	aliment: String,
 });
 
-const Diet = mongoose.model('Resort', dietSchema);
+const Diet = mongoose.model('Diet', dietSchema);
 
 module.exports = Diet;
