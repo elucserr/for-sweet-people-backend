@@ -45,7 +45,7 @@ Medication record: Able to connect own API an external API of medication
 | DELETE | `/users/:id`    | delete a record  |                                                                              |
 |  GET   | `/blood`        | list all records |                                                                              |
 |  POST  | `/blood`        | create a record  | `{ date, time, level }`                                                      |
-|  GET   | `/blood/:id`    | get a record     |   frontend?                                                                           |
+|  GET   | `/blood/:id`    | get a record     |                                                                              |
 |  PUT   | `/blood/:id`    | update a record  | `{ date, time, level }`                                                      |
 | DELETE | `/blood/:id`    | delete a record  |                                                                              |
 |  GET   | `/activity`     | list all records |                                                                              |
