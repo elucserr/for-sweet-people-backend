@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const medicineSchema = new Schema(
 	{
-		date: Date,
+		date: String,
 		time: String,
 		medicine: {
 			type: String,

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const dietSchema = new Schema(
 	{
-		date: Date,
+		date: String,
 		time: {
 			type: String,
 			enum: ['breakfast', 'brunch', 'lunch', 'snack', 'dinner'],

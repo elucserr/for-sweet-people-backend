@@ -7,7 +7,7 @@ const userSchema = new Schema(
 		username: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
-		dateOfBirth: Date,
+		dateOfBirth: String,
 		typeOfDiabetes: {
 			type: String,
 			enum: ['one', 'two', 'lada'],
