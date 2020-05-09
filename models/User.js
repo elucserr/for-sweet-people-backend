@@ -15,13 +15,12 @@ const userSchema = new Schema(
 		},
 		weight: Number,
 		height: Number,
-	},
-	{
 		blood_id: [{ type: Schema.Types.ObjectId, ref: 'Blood' }],
 		activity_id: [{ type: Schema.Types.ObjectId, ref: 'Activity' }],
 		diet_id: [{ type: Schema.Types.ObjectId, ref: 'Diet' }],
 		medicine_id: [{ type: Schema.Types.ObjectId, ref: 'Medicine' }],
 	},
+
 	{ timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
 );
 
