@@ -6,7 +6,23 @@ const medicineSchema = new Schema(
 	{
 		date: Date,
 		time: String,
-		medicine: String,
+		medicine: {
+			type: String,
+			enum: [
+				'Orinase',
+				'Amaryl',
+				'Glucotrol',
+				'Micronase',
+				'DiaBeta',
+				'Glucophage',
+				'Avandia',
+				'Lantus',
+				'Levemir',
+				'Insulatard',
+				'Novarapid',
+			],
+			default: 'breakfast',
+		},
 	},
 	{ timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
 );
