@@ -146,7 +146,7 @@ The url to your repository and to your deployed project
 
 ### Deploy
 
-[Deploy Link](http://heroku.com/)
+[Deploy Link](https://api-forsweetpeople.herokuapp.com/)
 
 ### Slides
 

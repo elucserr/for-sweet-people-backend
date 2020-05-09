@@ -8,7 +8,8 @@ router.use(checkIfLoggedIn);
 
 // GET /user GET PROFILE
 router.get('/:id', (req, res, next) => {
-	User.find()
+	User.find(req.params.id)
+		.populate('')
 		.then(profile => {
 			res.status(200).json(profile);
 		})
