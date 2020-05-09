@@ -2,15 +2,18 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const dietSchema = new Schema({
-	date: Date,
-	time: {
-		type: String,
-		enum: ['breakfast', 'brunch', 'lunch', 'snack', 'dinner'],
-		default: 'breakfast',
+const dietSchema = new Schema(
+	{
+		date: Date,
+		time: {
+			type: String,
+			enum: ['breakfast', 'brunch', 'lunch', 'snack', 'dinner'],
+			default: 'breakfast',
+		},
+		aliment: String,
 	},
-	aliment: String,
-});
+	{ timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
+);
 
 const Diet = mongoose.model('Diet', dietSchema);
 
