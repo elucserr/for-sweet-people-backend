@@ -63,7 +63,7 @@ app.use(
 
 app.use('/', authRouter);
 app.use('/protected', demoRouter);
-app.use('/user', userRouter);
+app.use('/user/:id', userRouter);
 app.use('/blood', bloodRouter);
 app.use('/diet', dietRouter);
 app.use('/medicine', medicineRouter);
