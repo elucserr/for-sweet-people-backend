@@ -31,7 +31,7 @@ Medication record: Able to connect own API an external API of medication
 | Method | Path      | description    | Body                            |
 | :----: | --------- | -------------- | ------------------------------- |
 |  GET   | `/whoami` | who am i       |                                 |
-|  POST  | `/signup` | signup a user  | `{ username, password, email }` |
+|  POST  | `/signup` | signup a user  | `{ username, password }` |
 |  POST  | `/login`  | login a user   | `{ username, password }`        |
 |  POST  | `/logout` | logout session |                                 |
 
@@ -41,7 +41,7 @@ Medication record: Able to connect own API an external API of medication
 | :----: | --------------- | ---------------- | ---------------------------------------------------------------------------- |
 |  GET   | `/404`          | error route      |                                                                              |
 |  GET   | `/users/:id`    | get my profile   |                                                                              |
-|  PUT   | `/users/:id`    | edit profile     | `{ username, password, email, dateofBirth, typeOfDiabetes, weight, height }` |
+|  PUT   | `/users/:id`    | edit profile     | `{ username, password, dateofBirth, typeOfDiabetes, weight, height }` |
 | DELETE | `/users/:id`    | delete a record  |                                                                              |
 |  GET   | `/blood`        | list all records |                                                                              |
 |  POST  | `/blood`        | create a record  | `{ date, time, level }`                                                      |
@@ -73,7 +73,6 @@ User model
 {
 	username: String
 	password: String
-	email: String
 	dateOfBirth: Date
 	typeOfDiabetes: enum [one, two, lada]
 	weight: Number
