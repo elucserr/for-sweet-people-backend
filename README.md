@@ -149,4 +149,4 @@ The url to your repository and to your deployed project
 
 ### Slides
 
-[Slides Link](https://slides.com/elenalucas/deck/fullscreen)
+[Slides Link](https://slides.com/elenalucas/forsweetpeople/fullscreen)
