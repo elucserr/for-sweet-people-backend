@@ -33,12 +33,13 @@ router.delete('/:id', (req, res, next) => {
 // PUT /user/:id update profile
 router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
-	const { username, password, dateofBirth, typeOfDiabetes, weight, height } = req.body;
+	const { username, password, dateofBirth, typeOfDiabetes, weight, email, height } = req.body;
 	User.findByIdAndUpdate(id, {
 		username,
 		password,
 		dateofBirth,
 		typeOfDiabetes,
+		email,
 		weight,
 		height,
 	})

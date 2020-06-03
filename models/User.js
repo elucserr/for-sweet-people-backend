@@ -14,6 +14,7 @@ const userSchema = new Schema(
 		},
 		weight: Number,
 		height: Number,
+		email: String,
 		blood: [{ type: Schema.Types.ObjectId, ref: 'Blood' }],
 		activity: [{ type: Schema.Types.ObjectId, ref: 'Activity' }],
 		diet: [{ type: Schema.Types.ObjectId, ref: 'Diet' }],
