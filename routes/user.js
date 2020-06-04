@@ -31,10 +31,10 @@ router.delete('/:id', (req, res, next) => {
 });
 
 // PUT /user/:id update profile
-router.put('/:id', (req, res, next) => {
-	const { id } = req.params;
+router.put('/', (req, res, next) => {
+	const { _id } = req.session.currentUser;
 	const { username, password, dateofBirth, typeOfDiabetes, weight, email, height } = req.body;
-	User.findByIdAndUpdate(id, {
+	User.findByIdAndUpdate(_id, {
 		username,
 		password,
 		dateofBirth,
